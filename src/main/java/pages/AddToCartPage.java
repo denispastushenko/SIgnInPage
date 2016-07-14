@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
+
+
 import static utils.ActionsUtils.*;
 
 public class AddToCartPage extends Page {
@@ -27,7 +29,7 @@ public class AddToCartPage extends Page {
         super(webDriver);
     }
 
-    public ViewCartPage addToCart() {
+    public ViewCartPage addToCart()  {
         actionClick(addToCart);
         WaitUtils.waitForElementForWebElem(addToCartConformation, 15);
         actionClick(addToCartConformation);

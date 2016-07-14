@@ -1,6 +1,7 @@
 import org.junit.Test;
 import pages.Page;
 
+
 public class TestTest extends BaseTest {
 
     @Test
