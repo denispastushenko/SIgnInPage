@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
         return driver.get();

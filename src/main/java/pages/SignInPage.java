@@ -5,8 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
+import static utils.ActionsUtils.*;
 
 public class SignInPage extends Page {
+
+    private By waiterOfElementVisibility = By.xpath("//div[@class='dashboard-welcome__welcome-msg']");
 
     @FindBy(id = "email")
     private WebElement emailInput;
@@ -17,14 +20,15 @@ public class SignInPage extends Page {
     @FindBy(xpath = "//button[@class='sign-in-form__form-button']")
     private WebElement signInButton;
 
-    public SignInPage(WebDriver webDriver) {super(webDriver);}
+    public SignInPage(WebDriver webDriver) {
+        super(webDriver);
+    }
 
-    public CheckPage signInMetod(String email, String password) {
-        emailInput.sendKeys(email);
-        passwordInput.sendKeys(password);
-        signInButton.click();
-        String locator = "//div[@class='dashboard-welcome__welcome-msg']";
-        WaitUtils.waitForElement(Page.getDriver(), By.xpath(locator), 5);
-        return new CheckPage(Page.getDriver());
+    public FindItemPage signInMethod(String email, String password) {
+        sendKeysMethod(emailInput, email);
+        sendKeysMethod(passwordInput, password);
+        actionClick(signInButton);
+        WaitUtils.waitForElementBy(waiterOfElementVisibility, 5);
+        return new FindItemPage(driver.get());
     }
 }

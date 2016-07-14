@@ -3,13 +3,13 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
+import static utils.ActionsUtils.*;
 
 public class AddToCartPage extends Page {
 
-    public static Actions action = new Actions(Page.getDriver());
+    private By waitingForcartButVis = By.xpath("//a[@class = 'global_minicart__content__subtotal-view__view-cart-link']");
 
     @FindBy(xpath = "//a[@href = '/en/pdp/olympic-soccer-ball-size-5-0844194p.html#srp']")
     private WebElement addToCart;
@@ -28,13 +28,13 @@ public class AddToCartPage extends Page {
     }
 
     public ViewCartPage addToCart() {
-        addToCart.click();
-        WaitUtils.waitForElementForAddingCart(Page.getDriver(), addToCartConformation, 15);
-        addToCartConformation.click();
-        WaitUtils.waitForElementForAddingCart(Page.getDriver(), continueShopping, 15);
-        continueShopping.click();
-        action.click(cartCheck).build().perform();
-        WaitUtils.waitForElement(Page.getDriver(), By.xpath("//a[@class = 'global_minicart__content__subtotal-view__view-cart-link']"), 5);
-        return new ViewCartPage(Page.getDriver());
+        actionClick(addToCart);
+        WaitUtils.waitForElementForWebElem(addToCartConformation, 15);
+        actionClick(addToCartConformation);
+        WaitUtils.waitForElementForWebElem(continueShopping, 15);
+        actionClick(continueShopping);
+        actionClick(cartCheck);
+        WaitUtils.waitForElementBy(waitingForcartButVis, 5);
+        return new ViewCartPage(driver.get());
     }
 }
