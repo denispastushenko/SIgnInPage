@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
 import static utils.ActionsUtils.*;
 
-
 public class AddToCartPage extends Page {
 
     private By waitingForCartButVis = By.xpath("//a[@class = 'global_minicart__content__subtotal-view__view-cart-link']");
