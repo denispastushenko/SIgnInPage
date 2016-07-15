@@ -3,7 +3,6 @@ import org.junit.Before;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
-import java.net.URL;
 import static utils.CatchExeptionClass.*;
 
 public class BaseTest {
@@ -16,9 +15,8 @@ public class BaseTest {
 
     @Before
     public void setUp() {
-        URL test = testStream;
         System.setProperty("webdriver.chrome.driver", "Z:/Downloads/ChromeDriver/chromedriver.exe");
-        homePage = new HomePage(new RemoteWebDriver(test, DesiredCapabilities.chrome()));
+        homePage = new HomePage(new RemoteWebDriver(catchExeptionMethodForBaseTest(), DesiredCapabilities.chrome()));
         Page.getDriver().manage().window().maximize();
     }
 
