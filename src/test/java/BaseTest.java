@@ -3,7 +3,8 @@ import org.junit.Before;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import pages.*;
-import static utils.CatchExeptionClass.*;
+
+import static utils.CatchExceptionClass.*;
 
 public class BaseTest {
     public static final String SITE = "http://www.canadiantire.ca/en.html";
@@ -16,7 +17,7 @@ public class BaseTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "Z:/Downloads/ChromeDriver/chromedriver.exe");
-        homePage = new HomePage(new RemoteWebDriver(catchExeptionMethodForBaseTest(), DesiredCapabilities.chrome()));
+        homePage = new HomePage(new RemoteWebDriver(catchExceptionMethodForBaseTest(), DesiredCapabilities.chrome()));
         Page.getDriver().manage().window().maximize();
     }
 

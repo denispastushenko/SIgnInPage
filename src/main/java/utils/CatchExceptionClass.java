@@ -3,9 +3,9 @@ package utils;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CatchExeptionClass {
+public class CatchExceptionClass {
 
-    public static URL catchExeptionMethodForBaseTest() {
+    public static URL catchExceptionMethodForBaseTest() {
         URL testStream = null;
         try {
             testStream = new URL("http://localhost:4445/wd/hub");

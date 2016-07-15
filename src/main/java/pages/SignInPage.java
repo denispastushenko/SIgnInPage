@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
+
 import static utils.ActionsUtils.*;
+
 
 public class SignInPage extends Page {
 
@@ -25,6 +27,7 @@ public class SignInPage extends Page {
     }
 
     public FindItemPage signInMethod(String email, String password) {
+        WaitUtils.waitForElementForWebElem(emailInput, 15);
         sendKeysMethod(emailInput, email);
         sendKeysMethod(passwordInput, password);
         actionClick(signInButton);

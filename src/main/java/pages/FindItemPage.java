@@ -6,12 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
+
 import static utils.ActionsUtils.*;
+import static utils.LanguageCheckClass.*;
 
 
 public class FindItemPage extends Page {
 
-    private By waitCategoriesVis = By.xpath("//span[text()='CATEGORIES']");
+    private By waitCategoriesVis = By.xpath("//a[@class = 'search-results-grid__load-more-results__link']");
 
     @FindBy(xpath = "//div[@class='dashboard-welcome__welcome-msg']")
     private WebElement autorizationLoginLable;
@@ -26,8 +28,9 @@ public class FindItemPage extends Page {
         super(webDriver);
     }
 
-    public FindItemPage checkTestForSignIn( String accountChecking) {
-        Assert.assertEquals(autorizationLoginLable.getText(), String.format("Welcome, %s", accountChecking));
+    public FindItemPage checkTestForSignIn(String accountChecking) {
+        Assert.assertEquals(setMainGreeting(autorizationLoginLable.getText()) + accountChecking,
+                String.format(setMainGreeting(autorizationLoginLable.getText()) + "%s", accountChecking));
         return new FindItemPage(driver.get());
     }
 

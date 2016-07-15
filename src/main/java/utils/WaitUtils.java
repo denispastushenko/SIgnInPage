@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import pages.Page;
+
 import java.util.concurrent.TimeUnit;
+
 
 public class WaitUtils {
     public static WebElement waitForElementBy(By by, int timeOutInSeconds) {

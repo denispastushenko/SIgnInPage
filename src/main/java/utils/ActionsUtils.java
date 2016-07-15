@@ -5,7 +5,7 @@ import pages.Page;
 import org.openqa.selenium.interactions.Actions;
 
 
-public class ActionsUtils  {
+public class ActionsUtils {
 
     private static Actions action = new Actions(Page.getDriver());
 

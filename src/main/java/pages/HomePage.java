@@ -4,14 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
+
 import static utils.ActionsUtils.*;
+
 
 public class HomePage extends Page {
 
-    @FindBy(xpath = "//span[text()='Sign In']")
+    @FindBy(xpath = "//button[@aria-controls='global-sign-in']")
     private static WebElement dropDowListSignIn;
 
-    @FindBy(xpath = "//span[text()='SIGN IN']")
+    @FindBy(xpath = "//a[@data-component='MenuButton']")
     private static WebElement linkSignIn;
 
     public HomePage(WebDriver webDriver) {
