@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
 
-
 import static utils.ActionsUtils.*;
+
 
 public class AddToCartPage extends Page {
 
