@@ -1,14 +1,15 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import utils.WaitUtils;
 
-import static utils.ActionsUtils.*;
-import static utils.LanguageCheckClass.*;
+import static utils.ActionsUtils.actionClick;
+import static utils.ActionsUtils.sendKeysMethod;
+import static utils.LanguageCheckClass.setMainGreeting;
 
 
 public class FindItemPage extends Page {

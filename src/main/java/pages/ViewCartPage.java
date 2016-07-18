@@ -1,12 +1,13 @@
 package pages;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import utils.WaitUtils;
 
-import static utils.ActionsUtils.*;
+import static utils.ActionsUtils.actionClick;
 
 
 public class ViewCartPage extends Page {

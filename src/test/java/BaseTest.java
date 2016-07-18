@@ -1,10 +1,10 @@
-import org.junit.After;
-import org.junit.Before;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import anotation.Proxy;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import pages.*;
+import utils.WebDriwerSetUp;
 
-import static utils.CatchExceptionClass.*;
+import java.lang.reflect.Method;
 
 public class BaseTest {
     public static final String SITE = "http://www.canadiantire.ca/en.html";
@@ -14,14 +14,14 @@ public class BaseTest {
     protected AddToCartPage addToCartPage;
     protected ViewCartPage viewCartPage;
 
-    @Before
-    public void setUp() {
+    @BeforeMethod
+    public void setUp(Method method) {
         System.setProperty("webdriver.chrome.driver", "Z:/Downloads/ChromeDriver/chromedriver.exe");
-        homePage = new HomePage(new RemoteWebDriver(catchExceptionMethodForBaseTest(), DesiredCapabilities.chrome()));
+        homePage = new HomePage(WebDriwerSetUp.createDriver(method.isAnnotationPresent(Proxy.class)));
         Page.getDriver().manage().window().maximize();
     }
 
-    @After
+    @AfterMethod
     public void shoutDown() {
         if (Page.getDriver() != null) {
             Page.getDriver().quit();

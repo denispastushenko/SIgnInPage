@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.testng.annotations.Test;
 import pages.Page;
 
 public class TestTest extends BaseTest {
