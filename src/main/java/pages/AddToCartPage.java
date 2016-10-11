@@ -11,7 +11,7 @@ public class AddToCartPage extends Page {
 
     private By waitingForCartButVis = By.xpath("//a[@class = 'global_minicart__content__subtotal-view__view-cart-link']");
 
-    @FindBy(xpath = "//a[@data-anchor = '0500285P']")
+    @FindBy(xpath = "//a[@data-anchor = '0403008P']")
     private WebElement addToCart;
 
     @FindBy(xpath = "//button[@class = 'add-to-cart__button']")
@@ -29,12 +29,12 @@ public class AddToCartPage extends Page {
 
     public ViewCartPage addToCart() {
         actionClick(addToCart);
-        WaitUtils.waitForElementForWebElem(addToCartConformation, 15);
+        WaitUtils.waitForElementForWebElem(addToCartConformation, 50);
         actionClick(addToCartConformation);
-        WaitUtils.waitForElementForWebElem(continueShopping, 15);
+        WaitUtils.waitForElementForWebElem(continueShopping, 50);
         actionClick(continueShopping);
         actionClick(cartCheck);
-        WaitUtils.waitForElementBy(waitingForCartButVis, 5);
+        WaitUtils.waitForElementBy(waitingForCartButVis, 50);
         return new ViewCartPage(driver.get());
     }
 }
